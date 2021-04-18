@@ -15,7 +15,7 @@ function App() {
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
-        >
+        >BOOOM:!!!!!
           {process.env.REACT_APP_OPENING_MESSAGE}
         </a>
       </header>
