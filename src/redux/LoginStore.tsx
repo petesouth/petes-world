@@ -69,7 +69,7 @@ export class LoginStore {
        }
     } else {
       this.loginUser.user = {...loginForm};
-      this.loginUser.token = Utils.giveMeGuid();
+      this.loginUser.token = Utils.giveMeGuid(); // Normally use the login data to get a JWT Token
       localStorage.setItem("loginUser",  JSON.stringify(this.loginUser));
       if(succeeded) {
         succeeded(this.loginUser);
@@ -81,6 +81,20 @@ export class LoginStore {
   doLogout () {
     this.loginUser = { user: null, token: null };
     localStorage.removeItem('loginUser');
+  }
+
+  getAxiosConfigHeaders() {
+    if (this.loginUser === undefined || this.loginUser.token === undefined) {
+      return {};
+    }
+
+    let axiosConfig = {
+      headers: {
+        Authorization: 'Bearer ' + this.loginUser.token,
+      }
+    };
+
+    return axiosConfig;
   }
 
 }
