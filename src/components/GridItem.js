@@ -22,8 +22,3 @@ export default function GridItem(props) {
     </Grid>
   );
 }
-
-GridItem.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
-};
