@@ -109,31 +109,35 @@ export function ButtonAppTopBar(props: { doLogout: (() => void) | null }) {
   );
 }
 
-
-function App() {
+function AppCoverPagePanel(props:any) {
   const classes = useStyles();
 
+  return  <div className={classes.root}>
+  <GridContainer className="App-header">
+    <ButtonAppTopBar doLogout={null} />
+    <GridItem xs={12} sm={12} md={12} lg={12} >
+      <p>
+        <div className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</div>
+      </p>
+
+    </GridItem>
+    <GridItem xs={12} sm={12} md={12} lg={12} >
+      <div className="wrap">
+        <div className="sticker"></div>
+        <div className="msg">
+          <div className={classes.hello}></div>
+        </div>
+      </div>
+    </GridItem>
+  </GridContainer>
+
+</div>
+}
+
+function App() {
+
   return (
-    <div className={classes.root}>
-      <GridContainer className="App-header">
-        <ButtonAppTopBar doLogout={null} />
-        <GridItem xs={12} sm={12} md={12} lg={12} >
-          <p>
-            <div className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</div>
-          </p>
-
-        </GridItem>
-        <GridItem xs={12} sm={12} md={12} lg={12} >
-          <div className="wrap">
-            <div className="sticker"></div>
-            <div className="msg">
-              <div className={classes.hello}></div>
-            </div>
-          </div>
-        </GridItem>
-      </GridContainer>
-
-    </div>
+    <AppCoverPagePanel />
   );
 }
 
