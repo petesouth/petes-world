@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function HelloWaverPanel(props:any) {
     const classes = useStyles();
     
-    return (<GridContainer>
+    return (<div style={{ padding: 100}}><GridContainer>
 
     <GridItem xs={12} sm={12} md={12} lg={12} >
       <div className="wrap">
@@ -27,7 +27,7 @@ export default function HelloWaverPanel(props:any) {
         </div>
       </div>
     </GridItem>
-    </GridContainer>);
+    </GridContainer></div>);
 }
 
 

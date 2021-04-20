@@ -74,12 +74,15 @@ export default class DraggingWaterEffect extends React.Component {
                 y: spring(mouseY),
             }
         }];
-        return (
+        return (<div style={{paddingTop: 40}}>
+            <h4 style={{ color: "white" }}>Drag the mouse see the sparkle!!!</h4>
+
             <TransitionMotion willLeave={this.willLeave} styles={styles}>
                 {circles =>
                     <div
-                        style={{ width: this.state.screen.width, 
-                                 height: this.state.screen.height
+                        style={{
+                            width: this.state.screen.width,
+                            height: this.state.screen.height
                         }}
                         onMouseMove={this.handleMouseMove}
                         onTouchMove={this.handleTouchMove}
@@ -95,10 +98,11 @@ export default class DraggingWaterEffect extends React.Component {
                                     WebkitTransform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
                                 }} />
                         )}
+
                     </div>
                 }
             </TransitionMotion>
-
+        </div>
         );
     };
 }

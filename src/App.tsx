@@ -51,28 +51,75 @@ const useStyles = makeStyles((theme: Theme) =>
 function AppCoverPagePanel(props: any) {
   const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [showItem, setShowItem] = React.useState<string>("asteroids");
+
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleShowAsteroids = () => {
+    setAnchorEl(null);
+    setShowItem("asteroids");
+  };
+
+
+  const handleShowHello = () => {
+    setAnchorEl(null);
+    setShowItem("hello");
+  };
+
+  const handleShowSparkly = () => {
+    setAnchorEl(null);
+    setShowItem("sparkly")
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  }
+
   return (<div style={{ minWidth: "800" }}>
     <GridContainer>
 
       <GridItem xs={12} sm={12} md={12} lg={12} >
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={(event) => {
+              handleClick(event)
+            }}>
               <MenuIcon />
             </IconButton>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={(handleClose)}
+            >
+              <MenuItem onClick={handleShowAsteroids}>Asteroids</MenuItem>
+              <MenuItem onClick={handleShowHello}>Say Hello</MenuItem>
+              <MenuItem onClick={handleShowSparkly}>Sparkle Chase</MenuItem>
+
+            </Menu>
             <Typography variant="h6" className={classes.title}>
               <h5 className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</h5>
             </Typography>
-         
+
           </Toolbar>
         </AppBar>
       </GridItem>
 
-      <DraggingWaterEffect innerWidth={"100%"} innerHeight={"100%"} />
-
-    
-
-      <Reacteroids innerWidth={800} innerHeight={800} />
+      <GridItem xs={12} sm={12} md={12} lg={12} >
+        {(() => {
+          if (showItem === "asteroids") {
+            return <Reacteroids innerWidth={800} innerHeight={800} />;
+          } else if (showItem === "hello") {
+            return <HelloWaverPanel />
+          } else if (showItem === "sparkly") {
+            return <DraggingWaterEffect innerWidth={"100%"} innerHeight={"100%"} />
+          }
+        })()
+        }
+      </GridItem>
 
 
 
