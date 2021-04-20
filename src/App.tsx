@@ -11,8 +11,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import GridContainer from "./components/GridContainer";
 import GridItem from "./components/GridItem";
 
-import MenuIcon from '@material-ui/icons/Menu';
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
 
+import MenuIcon from '@material-ui/icons/Menu';
+import { Reacteroids } from "./asteroids/Reacteroids";
 
 import './App.css';
 import { JsxElement } from 'typescript';
@@ -25,12 +29,6 @@ const style = {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      backgroundSize: "cover",
-      backgroundImage: 'url("images/universe-space-sky-stars-night-time-milky-way_117930-55.jpg");',
-      paddingBottom: "1px",
-      backgroundColor: "black"
-    },
     menuButton: {
       marginRight: theme.spacing(2),
     },
@@ -40,19 +38,6 @@ const useStyles = makeStyles((theme: Theme) =>
     appBar: {
       top: 'auto',
       bottom: 0,
-    },
-    hello: {
-      width: "50px",
-      height: "72px",
-      backgroundImage: 'url("images/sprite-steps.png")',
-      animation: "moveX 1s steps(10) infinite",
-      color: "whitesmoke",
-      textAlign: "center",
-      fontFamily: "'Bree Serif', Courier, monospaced",
-      fontSize: "1.5em",
-      position: "absolute",
-      margin: "-30px 0 0 68px",
-      pointerEvents: "none"
     }
 
 
@@ -60,78 +45,47 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-export function ButtonAppTopBar(props: { doLogout: (() => void) | null }) {
-  const classes = useStyles();
-  const doLogout = (props.doLogout) ? props.doLogout : () => {
-    alert("Logged Out");
-  };
-
-  const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
-
-  const handleClick = (event: MouseEvent) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <div className={classes.appBar}>
-      <AppBar position="fixed">
-        <Toolbar>
-
-          <div>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleClick}>
-              <MenuIcon />
-            </IconButton>
-
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={() => {
-                handleClose();
-                //loginStore.doLogout();
-                doLogout();
-              }}>Logout</MenuItem>
-            </Menu>
-          </div>
-          <Typography variant="h6" className={classes.title}>
-            Petes World Play Ground
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-}
 
 function AppCoverPagePanel(props:any) {
   const classes = useStyles();
 
-  return  <div className={classes.root}>
-  <GridContainer className="App-header">
-    <ButtonAppTopBar doLogout={null} />
+  return  (
+  <GridContainer>
     <GridItem xs={12} sm={12} md={12} lg={12} >
       <p>
         <div className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</div>
       </p>
 
     </GridItem>
-    <GridItem xs={12} sm={12} md={12} lg={12} >
+
+    <GridContainer>
+
+    <GridItem xs={6} sm={6} md={6} lg={6} >
       <div className="wrap">
         <div className="sticker"></div>
         <div className="msg">
-          <div className={classes.hello}></div>
+          <div className="hello"></div>
         </div>
       </div>
     </GridItem>
-  </GridContainer>
 
-</div>
+   
+    <GridItem xs={6} sm={6} md={6} lg={6}>
+        <Reacteroids innerWidth={600} innerHeight={600} />
+    </GridItem>
+
+    </GridContainer>
+   
+
+    <GridItem xs={12} sm={12} md={12} lg={12} >
+        <br/>
+    </GridItem>
+    <GridItem xs={12} sm={12} md={12} lg={12} >
+        <br/>
+    </GridItem>
+
+  </GridContainer>);
+
 }
 
 function App() {
