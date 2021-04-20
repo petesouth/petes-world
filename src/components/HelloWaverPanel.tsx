@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function HelloWaverPanel(props:any) {
     const classes = useStyles();
     
-    return (<div style={{ padding: 100}}><GridContainer>
+    return (<div style={{paddingTop: 20}}>
+      <h4 style={{ color: "white" }}>Hover you mouse over the blue star see the spin!!!</h4><GridContainer>
 
     <GridItem xs={12} sm={12} md={12} lg={12} >
       <div className="wrap">

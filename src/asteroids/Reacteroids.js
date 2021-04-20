@@ -251,6 +251,8 @@ export class Reacteroids extends Component {
     }
 
     return (
+      <div style={{paddingTop: 20}}>
+            <h4 style={{ color: "white" }}>Who Doesn't love Asteroids!?!?! (Written in React)</h4>
         <div style={{ textAlign: "center", 
                       color: "white",
                       paddingTop: 100,
@@ -268,6 +270,7 @@ export class Reacteroids extends Component {
           height={this.state.screen.height * this.state.screen.ratio}
         />
         
+        </div>
         </div>);
   }
 }

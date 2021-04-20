@@ -74,7 +74,7 @@ export default class DraggingWaterEffect extends React.Component {
                 y: spring(mouseY),
             }
         }];
-        return (<div style={{paddingTop: 40}}>
+        return (<div style={{paddingTop: 20}}>
             <h4 style={{ color: "white" }}>Drag the mouse see the sparkle!!!</h4>
 
             <TransitionMotion willLeave={this.willLeave} styles={styles}>
@@ -88,6 +88,7 @@ export default class DraggingWaterEffect extends React.Component {
                         onTouchMove={this.handleTouchMove}
                         className="demo7">
                         {circles.map(({ key, style: { opacity, scale, x, y } }) =>
+                        
                             <div
                                 key={key}
                                 className="demo7-ball"
