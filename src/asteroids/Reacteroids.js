@@ -19,6 +19,7 @@ export class Reacteroids extends Component {
   constructor(props) {
     super();
     this.state = {
+      unmount: false,
       screen: {
         width: props.innerWidth,
         height: props.innerHeight,
@@ -82,9 +83,13 @@ export class Reacteroids extends Component {
     window.removeEventListener('keydown', this.handleKeys);
 
     window.removeEventListener('resize', this.handleResize);
+    this.setState({ ...this.state, unmount: true})
   }
 
   update() {
+    if(this.state.unmount === true ) {
+      return;
+    }
     const context = this.state.context;
    
     context.save();

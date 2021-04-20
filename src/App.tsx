@@ -15,7 +15,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Reacteroids } from "./asteroids/Reacteroids";
 import DraggingWaterEffect from "./components/DraggingWaterEffect";
 import HelloWaverPanel from "./components/HelloWaverPanel";
+import ChartsPanel from "./components/ChartsPanel";
 
+//import Utils from "./services/utils";
 import './App.css';
 
 
@@ -63,7 +65,12 @@ function AppCoverPagePanel(props: any) {
 
   const handleShowSparkly = () => {
     setAnchorEl(null);
-    setShowItem("sparkly")
+    setShowItem("sparkly");
+  }
+
+  const handleShowCharts = () => {
+    setAnchorEl(null);
+    setShowItem("charts");
   }
 
   const handleClose = () => {
@@ -88,8 +95,9 @@ function AppCoverPagePanel(props: any) {
               onClose={(handleClose)}
             >
               <MenuItem onClick={handleShowAsteroids}>Asteroids</MenuItem>
-              <MenuItem onClick={handleShowHello}>Say Hello</MenuItem>
+              <MenuItem onClick={handleShowHello}>Say Hello SVG Animation</MenuItem>
               <MenuItem onClick={handleShowSparkly}>Sparkle Chase</MenuItem>
+              <MenuItem onClick={handleShowCharts}>Charts</MenuItem>
 
             </Menu>
             <Typography variant="h6" className={classes.title}>
@@ -105,9 +113,11 @@ function AppCoverPagePanel(props: any) {
           if (showItem === "asteroids") {
             return <Reacteroids innerWidth={800} innerHeight={800} />;
           } else if (showItem === "hello") {
-            return <HelloWaverPanel />
+            return <HelloWaverPanel />;
           } else if (showItem === "sparkly") {
-            return <DraggingWaterEffect innerWidth={"100%"} innerHeight={"100%"} />
+            return <DraggingWaterEffect innerWidth={"100%"} innerHeight={"100%"} />;
+          } else if ( showItem === "charts") {
+            return <ChartsPanel />;
           }
         })()
         }
