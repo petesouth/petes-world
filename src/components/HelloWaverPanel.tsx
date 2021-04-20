@@ -1,5 +1,5 @@
-import React, {  } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+//import React, {  } from 'react';
+//import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 import GridContainer from "./GridContainer";
 import GridItem from "./GridItem";
@@ -7,15 +7,15 @@ import GridItem from "./GridItem";
 import './HelloWaverPanel.css';
 
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+// const useStyles = makeStyles((theme: Theme) =>
+//   createStyles({
 
-  }),
-);
+//   }),
+// );
 
 
 export default function HelloWaverPanel(props:any) {
-    const classes = useStyles();
+    //const classes = useStyles();
     
     return (<div style={{paddingTop: 20}}>
       <h4 style={{ color: "white" }}>Hover you mouse over the blue star see the spin!!!</h4><GridContainer>

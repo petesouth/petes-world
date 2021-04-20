@@ -24,7 +24,6 @@ const store = createStore(rootReducer, composeWithDevTools(
 
 
 ReactDOM.render(
-  <React.StrictMode>
      <Provider store={store}>
       <Router history={history}>
         <Switch>
@@ -32,8 +31,7 @@ ReactDOM.render(
           <Redirect from="/" to="/main" />
         </Switch>
       </Router>
-      </Provider>
-  </React.StrictMode>,
+      </Provider>,
   document.getElementById('root')
 );
 

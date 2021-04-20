@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Ship from './Ship';
 import Asteroid from './Asteroid';
 import { randomNumBetweenExcluding } from './helpers'
 import Button from "@material-ui/core/Button";
-
-import GridContainer from "../components/GridContainer";
-import GridItem from "../components/GridItem";
 
 const KEY = {
   LEFT:  37,
@@ -89,9 +86,7 @@ export class Reacteroids extends Component {
 
   update() {
     const context = this.state.context;
-    const keys = this.state.keys;
-    const ship = this.ship[0];
-
+   
     context.save();
     context.scale(this.state.screen.ratio, this.state.screen.ratio);
 
@@ -169,7 +164,6 @@ export class Reacteroids extends Component {
   }
 
   generateAsteroids(howMany){
-    let asteroids = [];
     let ship = this.ship[0];
     for (let i = 0; i < howMany; i++) {
       let asteroid = new Asteroid({
@@ -228,13 +222,12 @@ export class Reacteroids extends Component {
   }
 
   render() {
+  
     let endgame =  (
       <div className="endgame">
         <p>Game in progres...</p>
       </div>
     );
-
-    let message;
 
     
     if(!this.state.inGame){
@@ -251,8 +244,7 @@ export class Reacteroids extends Component {
     }
 
     return (
-      <div style={{paddingTop: 20}}>
-            <h4 style={{ color: "white" }}>Who Doesn't love Asteroids!?!?! (Written in React)</h4>
+     
         <div style={{ textAlign: "center", 
                       color: "white",
                       paddingTop: 100,
@@ -270,7 +262,7 @@ export class Reacteroids extends Component {
           height={this.state.screen.height * this.state.screen.ratio}
         />
         
-        </div>
+       
         </div>);
   }
 }
