@@ -46,45 +46,46 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
-function AppCoverPagePanel(props:any) {
+function AppCoverPagePanel(props: any) {
   const classes = useStyles();
 
-  return  (
-  <GridContainer>
-    <GridItem xs={12} sm={12} md={12} lg={12} >
-      <p>
-        <div className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</div>
-      </p>
-
-    </GridItem>
-
+  return (
     <GridContainer>
 
-    <GridItem xs={6} sm={6} md={6} lg={6} >
-      <div className="wrap">
-        <div className="sticker"></div>
-        <div className="msg">
-          <div className="hello"></div>
-        </div>
-      </div>
-    </GridItem>
 
-   
-    <GridItem xs={6} sm={6} md={6} lg={6}>
-        <Reacteroids innerWidth={600} innerHeight={600} />
-    </GridItem>
+      <GridItem xs={12} sm={12} md={12} lg={12}>
+        <h4 className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</h4>
+      </GridItem>
 
-    </GridContainer>
-   
+      <GridContainer>
 
-    <GridItem xs={12} sm={12} md={12} lg={12} >
-        <br/>
-    </GridItem>
-    <GridItem xs={12} sm={12} md={12} lg={12} >
-        <br/>
-    </GridItem>
+        <GridItem xs={12} sm={12} md={12} lg={12} >
+          <div className="wrap">
+            <div className="sticker"></div>
+            <div className="msg">
+              <div className="hello"></div>
+            </div>
+          </div>
+        </GridItem>
+      </GridContainer>
 
-  </GridContainer>);
+      <GridItem xs={12} sm={12} md={12} lg={12} >
+        <br />
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12} lg={12} >
+        <br />
+      </GridItem>
+
+      <Reacteroids innerWidth={800} innerHeight={800} />
+     
+      <GridItem xs={12} sm={12} md={12} lg={12} >
+        <br />
+      </GridItem>
+      <GridItem xs={12} sm={12} md={12} lg={12} >
+        <br />
+      </GridItem>
+
+    </GridContainer>);
 
 }
 

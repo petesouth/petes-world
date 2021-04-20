@@ -247,11 +247,11 @@ export class Reacteroids extends Component {
       )
     }
 
-    return ( <GridItem xs={12} sm={12} md={12} lg={12}>
-
+    return (
         <div style={{ textAlign: "center", 
                       color: "white",
-                      marginLeft: (window.width / 2) - this.state.screen.width,
+                      paddingTop: 120,
+                      paddingLeft: (window.innerWidth / 2) - (this.state.screen.width/2),
                       width: "" + this.state.screen.width + "px", 
                       height: "" + this.state.screen.height + "px"}}>
         
@@ -260,14 +260,11 @@ export class Reacteroids extends Component {
           Use [A/LEFT] [S/RIGHT] [D/FORWARD] [SPACE/SHOOT] 
         </span>
 
-        <canvas ref="canvas"
+        <canvas style={{ textAlign: "center"}} ref="canvas"
           width={this.state.screen.width * this.state.screen.ratio}
           height={this.state.screen.height * this.state.screen.ratio}
         />
         
-        
-        </div>
-
-        </GridItem>);
+        </div>);
   }
 }

@@ -13,7 +13,7 @@ height: auto;
   display: inline-block;
   color: whitesmoke;
   animation: fadeIn linear 7s;
-  animation-play-state: "paused";
+  animation-play-state: paused;
   -webkit-animation: fadeIn linear 7s;
   -moz-animation: fadeIn linear 7s;
   -o-animation: fadeIn linear 7s;
