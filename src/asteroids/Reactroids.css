@@ -36,16 +36,3 @@ canvas {
   z-index: 1;
   text-align: center;
 }
-button{
-  border: 4px solid #ffffff;
-  background-color: transparent;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px;
-  font-family: 'PT Mono', serif;
-  cursor: pointer;
-}
-button:hover{
-  background-color: #ffffff;
-  color: #000000;
-}

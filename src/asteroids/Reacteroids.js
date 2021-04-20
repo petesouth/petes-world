@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Ship from './Ship';
 import Asteroid from './Asteroid';
 import { randomNumBetweenExcluding } from './helpers'
-
+import Button from "@material-ui/core/Button";
 
 import GridContainer from "../components/GridContainer";
 import GridItem from "../components/GridItem";
@@ -18,6 +18,7 @@ const KEY = {
 };
 
 export class Reacteroids extends Component {
+
   constructor(props) {
     super();
     this.state = {
@@ -238,11 +239,13 @@ export class Reacteroids extends Component {
     
     if(!this.state.inGame){
       endgame = (
-        <div className="endgame">
-          <button
-            onClick={ this.startGame.bind(this) }>
+        <div className="endgame" style={{padding: 20}}>
+          <Button  variant="contained"  color="primary" 
+            onClick={(e)=>{
+              this.startGame();
+            }}>
             Game Over. Try Again?
-          </button>
+          </Button>
         </div>
       )
     }
@@ -250,16 +253,16 @@ export class Reacteroids extends Component {
     return (
         <div style={{ textAlign: "center", 
                       color: "white",
-                      paddingTop: 120,
+                      paddingTop: 100,
+                      paddingBottom: 100,
                       paddingLeft: (window.innerWidth / 2) - (this.state.screen.width/2),
                       width: "" + this.state.screen.width + "px", 
                       height: "" + this.state.screen.height + "px"}}>
         
-        { endgame }
         <span className="controls" >
-          Use [A/LEFT] [S/RIGHT] [D/FORWARD] [SPACE/SHOOT] 
+          [A/LEFT] [S/RIGHT] [D/FORWARD] [SPACE/SHOOT] 
         </span>
-
+        { endgame }
         <canvas style={{ textAlign: "center"}} ref="canvas"
           width={this.state.screen.width * this.state.screen.ratio}
           height={this.state.screen.height * this.state.screen.ratio}

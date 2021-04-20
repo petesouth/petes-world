@@ -1,4 +1,3 @@
-// From: http://codepen.io/bungu/pen/rawvJe
 
 /**
  * Generates vertices for asteroid polygon with certain count and radius

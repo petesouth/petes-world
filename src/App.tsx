@@ -17,6 +17,8 @@ import CardContent from "@material-ui/core/CardContent";
 
 import MenuIcon from '@material-ui/icons/Menu';
 import { Reacteroids } from "./asteroids/Reacteroids";
+import DraggingWaterEffect from "./components/DraggingWaterEffect";
+import HelloWaverPanel from "./components/HelloWaverPanel";
 
 import './App.css';
 import { JsxElement } from 'typescript';
@@ -49,43 +51,33 @@ const useStyles = makeStyles((theme: Theme) =>
 function AppCoverPagePanel(props: any) {
   const classes = useStyles();
 
-  return (
+  return (<div style={{ minWidth: "800" }}>
     <GridContainer>
 
-
-      <GridItem xs={12} sm={12} md={12} lg={12}>
-        <h4 className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</h4>
-      </GridItem>
-
-      <GridContainer>
-
-        <GridItem xs={12} sm={12} md={12} lg={12} >
-          <div className="wrap">
-            <div className="sticker"></div>
-            <div className="msg">
-              <div className="hello"></div>
-            </div>
-          </div>
-        </GridItem>
-      </GridContainer>
-
       <GridItem xs={12} sm={12} md={12} lg={12} >
-        <br />
+        <AppBar position="fixed">
+          <Toolbar>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              <h5 className="fade-in-text">{process.env.REACT_APP_OPENING_MESSAGE}</h5>
+            </Typography>
+         
+          </Toolbar>
+        </AppBar>
       </GridItem>
-      <GridItem xs={12} sm={12} md={12} lg={12} >
-        <br />
-      </GridItem>
+
+      <DraggingWaterEffect innerWidth={"100%"} innerHeight={"100%"} />
+
+    
 
       <Reacteroids innerWidth={800} innerHeight={800} />
-     
-      <GridItem xs={12} sm={12} md={12} lg={12} >
-        <br />
-      </GridItem>
-      <GridItem xs={12} sm={12} md={12} lg={12} >
-        <br />
-      </GridItem>
 
-    </GridContainer>);
+
+
+    </GridContainer>
+  </div>);
 
 }
 
